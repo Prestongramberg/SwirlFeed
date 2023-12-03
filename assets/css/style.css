@@ -82,6 +82,11 @@ nav a:hover {
     height: 100%;
 }
 
+.wrapper-full-width {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
 .column {
     background-color: #fff;
     padding: 10px;

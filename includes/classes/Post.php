@@ -117,7 +117,7 @@ class Post
                     <script>
                         function toggle<?php echo $id; ?>() {
                             var target = $(event.target);
-                            if(!target.is("a")) {
+                            if (!target.is("a")) {
                                 var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
                                 if (element.style.display === "block") {
