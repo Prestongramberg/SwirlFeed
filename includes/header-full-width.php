@@ -22,10 +22,14 @@ if (isset($_SESSION['username'])) {
     <title>Swirlfeed</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
     <script src="https://kit.fontawesome.com/1ff8f2d18f.js" crossorigin="anonymous"></script>
     <script src="assets/js/swirlfeed.js"></script>
+    <script src="assets/js/jquery.jcrop.js"></script>
+    <script src="assets/js/jcrop_bits.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
     <meta name="description" content="Social Media Project">
     <meta name="author" content="Preston Gramberg">
 </head>
