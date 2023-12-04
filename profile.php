@@ -68,7 +68,6 @@ if (isset($_POST['add_friend'])) {
 
         </form>
         <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
-
         <?php
         if ($userLoggedIn != $username) {
             echo '<div class="profile_info_bottom">';
@@ -78,8 +77,6 @@ if (isset($_POST['add_friend'])) {
 
         ?>
     </div>
-
-
     <div class="profile_main_column column">
         <div class="posts_area"></div>
         <img id="loading" src="assets/images/icons/loading.gif">
@@ -96,7 +93,6 @@ if (isset($_POST['add_friend'])) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h5 class="modal-title" id="exampleModalLabel">Post somthing!</h5>
-
                 </div>
                 <div class="modal-body">
                     <p>This will appear on the user's profile page and also their newsfeed for your friends to see!</p>

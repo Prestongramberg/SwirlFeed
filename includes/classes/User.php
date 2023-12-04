@@ -150,16 +150,3 @@ class User
         return $mutualFriends;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
