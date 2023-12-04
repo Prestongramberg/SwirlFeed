@@ -8,7 +8,6 @@ if (isset($_POST['post'])) {
     header("Location: index.php");
 }
 ?>
-
     <div class="user_details column">
         <a href="<?php
         echo $userLoggedIn; ?>"><img src="<?php

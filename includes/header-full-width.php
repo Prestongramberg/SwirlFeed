@@ -4,6 +4,7 @@ global $con;
 require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
+include("includes/classes/Message.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -29,7 +30,7 @@ if (isset($_SESSION['username'])) {
     <script src="assets/js/jcrop_bits.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css"/>
     <meta name="description" content="Social Media Project">
     <meta name="author" content="Preston Gramberg">
 </head>
