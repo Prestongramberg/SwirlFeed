@@ -51,7 +51,7 @@ if (isset($_POST['post_message'])) {
     if ($user_to != "new") {
         echo "<h4>You and <a href='$user_to'>" . $user_to_obj->getFirstAndLastName() . "</a></h4><hr><br>";
         echo "<div class='loaded_messages'>";
-        echo $message_obj->getMessages()($user_to);
+        echo $message_obj->getMessages($user_to);
         echo "</div>";
     } else {
         echo "<h4>New Message</h4>";

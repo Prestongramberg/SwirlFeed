@@ -61,9 +61,9 @@ class Message
 
         $get_message_query = mysqli_query(
             $this->con,
-            "SELECT * FROM massages WHERE (user_to='$userLoggedIn' AND user_from='$otherUser') OR (user_from='$userLoggedIn' AND user_to='$otherUser')"
+            "SELECT * FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$otherUser') OR (user_from='$userLoggedIn' AND user_to='$otherUser')"
         );
-        while($row = mysqli_fetch_array($get_message_query)) {
+        while ($row = mysqli_fetch_array($get_message_query)) {
             $user_to = $row['user_to'];
             $user_from = $row['user_from'];
             $body = $row['body'];
