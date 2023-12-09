@@ -74,10 +74,14 @@ class Message
         return $data;
     }
 
-    public function getLatestMessage($userLoggedIn, $user2) {
+    public function getLatestMessage($userLoggedIn, $user2)
+    {
         $details_array = array();
 
-        $query = mysqli_query($this->con, "SELECT body, user_to, date FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$user2') OR (user_to='$user2' AND user_from='$userLoggedIn') ORDER BY id DESC LIMIT 1");
+        $query = mysqli_query(
+            $this->con,
+            "SELECT body, user_to, date FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$user2') OR (user_to='$user2' AND user_from='$userLoggedIn') ORDER BY id DESC LIMIT 1"
+        );
 
         $row = mysqli_fetch_array($query);
         $sent_by = ($row['user_to'] == $userLoggedIn) ? "They said: " : "You said: ";
@@ -150,7 +154,6 @@ class Message
         array_push($details_array, $time_message);
 
         return $details_array;
-
     }
 
     public function getConvos()
