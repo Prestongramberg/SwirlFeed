@@ -45,8 +45,8 @@ if ($query != "") {
                             <img src='" . $row['profile_pic'] . "'>
                          </div>
                          <div class='liveSearchText'>" . $row['first_name'] . " " . $row['last_name'] . "
-                             <p>" . $row['username'] . "</p>
-                             <p id='grey'>'" . $mutual_friends . "</p>
+                             <p style='margin: 0;'>" . $row['username'] . "</p>
+                             <p id='grey'>" . $mutual_friends . "</p>
                          </div>
                      </a>
                   </div>";

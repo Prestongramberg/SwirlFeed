@@ -30,9 +30,3 @@ $(document).ready(function () {
     });
 
 });
-
-// function getUsers(value, user) {
-//     $.post("includes/handlers/ajax_friend_search.php", {query:value, userLoggedIn}, function (data) {
-//         $(".results").html(data);
-//     });
-// }
