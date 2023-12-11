@@ -52,5 +52,7 @@ if (isset($_SESSION['username'])) {
         <a href="#"><i class="fa-solid fa-bars"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-sign-out"></i></a>
     </nav>
+
+
 </div>
 <div class="wrapper wrapper-full-width">
