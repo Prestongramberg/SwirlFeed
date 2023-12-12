@@ -458,3 +458,20 @@ textarea:focus {
 .tab-content {
     margin-top: 25px;
 }
+
+.dropdown_data_window {
+    height: 0;
+    padding: 0;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    overflow: scroll;
+}
+
+.dropdown_data_window--active {
+    border: 1px solid #DADADA;
+    height: 280px !important;
+}

@@ -21,7 +21,6 @@ $(document).ready(function () {
 function getDropdownData(user, type) {
 
     if ($(".dropdown_data_window").css("height") == "0px") {
-
         var pageName;
 
         if (type === 'notification') {
@@ -39,14 +38,15 @@ function getDropdownData(user, type) {
 
             success: function (response) {
                 $(".dropdown_data_window").html(response);
-                $(".dropdown_data_window").css({"padding": "0px", "height": "280px"});
                 $("#dropdown_data_type").val(type);
+                $(".dropdown_data_window").addClass('dropdown_data_window--active');
             }
         });
 
     } else {
         $(".dropdown_data_window").html("");
-        $(".dropdown_data_window").css({"padding": "0px", "height": "0px"});
+        $(".dropdown_data_window").removeClass('dropdown_data_window--active');
+
     }
 
 }
