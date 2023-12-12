@@ -57,6 +57,7 @@ if (isset($_POST['post'])) {
             $(window).scroll(function () {
                 var height = $('.posts_area').height(); // Div containing posts
                 var scroll_top = $(this).scrollTop();
+                var page = $('dropdown_data_window').find('.nextPage')
                 var noMorePosts = $('.posts_area').find('.noMorePosts').val();
                 if ((document.body.scrollHeight === document.documentElement.scrollTop + window.innerHeight) && noMorePosts === 'false') {
                     if (!isLoading) {

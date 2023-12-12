@@ -46,7 +46,8 @@ if (isset($_SESSION['username'])) {
             echo $user['first_name']; ?>
         </a>
         <a href="index.php"><i class="fa-solid fa-house-chimney"></i></a>
-        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i></a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php
+        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i></a>
         <a href="#"><i class="fa-regular fa-bell"></i></a>
         <a href="requests.php"><i class="fa-solid fa-users"></i></a>
         <a href="#"><i class="fa-solid fa-bars"></i></a>
@@ -62,48 +63,36 @@ if (isset($_SESSION['username'])) {
     var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
     $(document).ready(function () {
-        $('#loading').show();
 
-        // Original ajax request for loading first posts
-        $.ajax({
-            url: "includes/handlers/ajax_load_posts.php",
-            type: "POST",
-            data: "page=1&userLoggedIn=" + userLoggedIn,
-            cache: false,
+        $('.drop_down_data_window').scroll(function () {
+            var inner_height = $('.drop_down_data_window').innerHeight(); // Div containing data
+            var scroll_top = $('.dropdown_data_window').scrollTop();
+            var page = $('.dropdown_data_window').find('.nextPageDropDownData').val();
+            var noMoreData = $('.dropdown_data_window').find('.noMoreDropDownData').val();
 
-            success: function (data) {
-                $('#loading').hide();
-                $('.posts_area').html(data);
-            }
-        });
+            if ((scroll_top + inner_height >= $('.dropdown_data_window')[0].scrollHeight) && noMoreData === 'false') {
 
-        var isLoading = false;
+                var pageName; // Holds name od page to send ajax request to
+                var tyoe = $('#dropdown_data_type').val();
 
-        $(window).scroll(function () {
-            var height = $('.posts_area').height(); // Div containing posts
-            var scroll_top = $(this).scrollTop();
-            var noMorePosts = $('.posts_area').find('.noMorePosts').val();
-            if ((document.body.scrollHeight === document.documentElement.scrollTop + window.innerHeight) && noMorePosts === 'false') {
-                if (!isLoading) {
-                    $('#loading').show();
-                    isLoading = true;
-                    var page = $('.posts_area').find('.nextPage').val();
-
-                    var ajaxReq = $.ajax({
-                        url: "includes/handlers/ajax_load_posts.php",
-                        type: "POST",
-                        data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
-                        cache: false,
-
-                        success: function (response) {
-                            $('.posts_area').find('.nextPage').remove(); // Removes current .nextpage
-                            $('.posts_area').find('.noMorePosts').remove();
-                            isLoading = false;
-                            $('#loading').hide();
-                            $('.posts_area').append(response);
-                        }
-                    });
+                if (type == 'notification') {
+                    pageName = "ajax_load_notifications.php;
+                } else if (type = 'message') {
+                    pageName = "ajax_load_message.php";
                 }
+
+                var ajaxReq = $.ajax({
+                    url: "includes/handlers/" + pageName,
+                    type: "POST",
+                    data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+                    cache: false,
+
+                    success: function (response) {
+                        $('.dropdown_data_window').find('.nextPageDropDownData').remove(); // Removes current .nextpage
+                        $('.dropdown_data_window').find('.noMoreDropDownData').remove();
+                        $('.dropdown_data_window').append(response);
+                    }
+                });
 
 
             } // End if
