@@ -1,17 +1,5 @@
 $(document).ready(function () {
 
-    function getUsers(value, user) {
-        $.post("includes/handlers/ajax_friend_search.php", {query: value, userLoggedIn: user}, function (data) {
-            $(".results").html(data);
-        });
-    }
-
-    $('#search_text_input').keyup(function () {
-        let loggedInUser = $(this).attr('data-logged-in-user');
-        let inputValue = $(this).val();
-        getUsers(inputValue, loggedInUser);
-    });
-
     // Button for profile post
     $('#submit_profile_post').click(function () {
 
@@ -28,7 +16,6 @@ $(document).ready(function () {
             }
         });
     });
-
 });
 
 function getDropdownData(user, type) {
@@ -37,12 +24,10 @@ function getDropdownData(user, type) {
 
         var pageName;
 
-        if (type == 'notification') {
+        if (type === 'notification') {
 
-        }
-        elseif(type == 'messagea')
-        {
-            pagename = "ajax_load_messages.php";
+        } else if (type === 'message') {
+            pageName = "ajax_load_messages.php";
             $("span").remove("#unread_message");
         }
 
@@ -65,3 +50,18 @@ function getDropdownData(user, type) {
     }
 
 }
+
+function getUsers(value, user) {
+    $.post("includes/handlers/ajax_friend_search.php", {query: value, userLoggedIn: user}, function (data) {
+        $(".results").html(data);
+    });
+}
+
+function handleOnKeyUpUserSearch(inputValue, loggedInUser) {
+    debugger;
+    getUsers(inputValue, loggedInUser);
+}
+
+
+
+

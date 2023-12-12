@@ -46,8 +46,7 @@ if (isset($_SESSION['username'])) {
             echo $user['first_name']; ?>
         </a>
         <a href="index.php"><i class="fa-solid fa-house-chimney"></i></a>
-        <a href="javascript:void(0);" onclick="getDropdownData('<?php
-        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i></a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i></a>
         <a href="#"><i class="fa-regular fa-bell"></i></a>
         <a href="requests.php"><i class="fa-solid fa-users"></i></a>
         <a href="#"><i class="fa-solid fa-bars"></i></a>

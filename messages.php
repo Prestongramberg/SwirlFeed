@@ -65,8 +65,8 @@ if (isset($_POST['post_message'])) {
             if ($user_to == "new") {
                 echo "Select the friend you would like to message <br><br>";
                 ?>
-                To: <input data-logged-in-user="<?php
-                echo $userLoggedIn; ?>" type='text' name='q' placeholder='Name' autocomplete='off'
+                To: <input onkeyup="handleOnKeyUpUserSearch(this.value, '<?php
+                echo $userLoggedIn; ?>')" type='text' name='q' placeholder='Name' autocomplete='off'
                            id='search_text_input'>
                 <?php
                 echo "<div class='results'></div>";
