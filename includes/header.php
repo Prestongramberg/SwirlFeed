@@ -57,4 +57,59 @@ if (isset($_SESSION['username'])) {
     <input type="hidden" id="dropdown_data_type" value="">
 
 </div>
+
+<script>
+    var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+
+    $(document).ready(function () {
+        $('#loading').show();
+
+        // Original ajax request for loading first posts
+        $.ajax({
+            url: "includes/handlers/ajax_load_posts.php",
+            type: "POST",
+            data: "page=1&userLoggedIn=" + userLoggedIn,
+            cache: false,
+
+            success: function (data) {
+                $('#loading').hide();
+                $('.posts_area').html(data);
+            }
+        });
+
+        var isLoading = false;
+
+        $(window).scroll(function () {
+            var height = $('.posts_area').height(); // Div containing posts
+            var scroll_top = $(this).scrollTop();
+            var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+            if ((document.body.scrollHeight === document.documentElement.scrollTop + window.innerHeight) && noMorePosts === 'false') {
+                if (!isLoading) {
+                    $('#loading').show();
+                    isLoading = true;
+                    var page = $('.posts_area').find('.nextPage').val();
+
+                    var ajaxReq = $.ajax({
+                        url: "includes/handlers/ajax_load_posts.php",
+                        type: "POST",
+                        data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+                        cache: false,
+
+                        success: function (response) {
+                            $('.posts_area').find('.nextPage').remove(); // Removes current .nextpage
+                            $('.posts_area').find('.noMorePosts').remove();
+                            isLoading = false;
+                            $('#loading').hide();
+                            $('.posts_area').append(response);
+                        }
+                    });
+                }
+
+
+            } // End if
+            return false;
+        }); // End $(window).scroll(function()
+    });
+</script>
+
 <div class="wrapper">
