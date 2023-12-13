@@ -50,6 +50,10 @@ if (isset($_SESSION['username'])) {
         // Unread Notifications
         $notifications = new Notification($con, $userLoggedIn);
         $num_notifications = $notifications->getUnreadNumber();
+
+        // Unread
+        $user_obj = new User($con, $userLoggedIn);
+        $num_requests = $user_obj->getNumberOfFriendsRequest();
         ?>
         <a href="<?php
         echo $userLoggedIn; ?>">
@@ -58,20 +62,28 @@ if (isset($_SESSION['username'])) {
         </a>
         <a href="index.php"><i class="fa-solid fa-house-chimney"></i></a>
         <a href="javascript:void(0);" onclick="getDropdownData('<?php
-        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope" id="message_icon"></i>
+        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope" id="icon_placement"></i>
             <?php
-            if ($num_messages > 0)
+            if ($num_messages > 0) {
                 echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
+            }
             ?>
         </a>
         <a href="javascript:void(0);" onclick="getDropdownData('<?php
-        echo $userLoggedIn; ?>', 'notification')"><i class="fa-regular fa-bell"></i>
+        echo $userLoggedIn; ?>', 'notification')"><i class="fa-regular fa-bell" id="bell_placement"></i>
             <?php
-            if ($num_notifications > 0)
+            if ($num_notifications > 0) {
                 echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
+            }
             ?>
         </a>
-        <a href="requests.php"><i class="fa-solid fa-users"></i></a>
+        <a href="requests.php"><i class="fa-solid fa-users"></i>
+            <?php
+            if ($num_requests > 0) {
+                echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
+            }
+            ?>
+        </a>
         <a href="#"><i class="fa-solid fa-bars"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-sign-out"></i></a>
     </nav>
@@ -95,7 +107,7 @@ if (isset($_SESSION['username'])) {
                 var tyoe = $('#dropdown_data_type').val();
 
                 if (type == 'notification') {
-                    pageName = "ajax_load_notifications.php;
+                    pageName = "ajax_load_notifications.php";
                 } else if (type = 'message') {
                     pageName = "ajax_load_message.php";
                 }

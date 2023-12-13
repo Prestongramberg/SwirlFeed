@@ -4,6 +4,7 @@ global $con;
 require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
+include("includes/classes/Notification.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];

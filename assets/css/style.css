@@ -492,6 +492,28 @@ textarea:focus {
     top: -5px;
 }
 
-#message_icon {
-    padding-right: 8px;
+/*#icon_placement {*/
+/*    padding-right: 3px;*/
+/*}*/
+
+/*#bell_placement {*/
+/*    margin-right: 11px;*/
+/*}*/
+
+.resultDisplayNotification {
+    height: auto;
+    color: #1485BD;
+    padding-bottom: 7px;
+}
+
+.resultDisplayNotification img {
+    height: 40px;
+    border-radius: 5px;
+    margin: 1px 12px 0 2px;
+    float: left;
+}
+
+.timestamp_smaller {
+    font-size: 85%;
+    margin: 0;
 }

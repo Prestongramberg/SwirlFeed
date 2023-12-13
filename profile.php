@@ -97,13 +97,11 @@ if (isset($_POST['post_message'])) {
         ?>
     </div>
     <div class="profile_main_column column">
-
         <ul class="nav nav-tabs" role="tablist" id="profileTabs">
-            <li class="active"><a href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a>
-            </li>
-            <li role="presentation" class="nav-item"><a href="#messages_div" aria-controls="newsfeed_div" role="tab"
-                                                        data-toggle="tab">Messages</a></li>
+            <li class="active"><a href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a></li>
+            <li role="presentation"><a href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a></li>
         </ul>
+
 
         <div class="tab-content">
 
@@ -111,7 +109,7 @@ if (isset($_POST['post_message'])) {
                 <div class="posts_area"></div>
                 <img id="loading" src="assets/images/icons/loading.gif">
             </div>
-            <div role="tabpanel" class="tab-pane fade in active" id="messages_div">
+            <div role="tabpanel" class="tab-pane fade in" id="messages_div">
                 <?php
                 echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName(
                     ) . "</a></h4><hr><br>";
@@ -187,11 +185,12 @@ if (isset($_POST['post_message'])) {
                 }
             });
 
-            var isLoading = false;
+            // var isLoading = false;
 
             $(window).scroll(function () {
                 var height = $('.posts_area').height(); // Div containing posts
                 var scroll_top = $(this).scrollTop();
+                var page = $('.posts_area').find('.nextPage').val();
                 var noMorePosts = $('.posts_area').find('.noMorePosts').val();
                 if ((document.body.scrollHeight === document.documentElement.scrollTop + window.innerHeight) && noMorePosts === 'false') {
                     if (!isLoading) {
@@ -208,7 +207,7 @@ if (isset($_POST['post_message'])) {
                             success: function (response) {
                                 $('.posts_area').find('.nextPage').remove(); // Removes current .nextpage
                                 $('.posts_area').find('.noMorePosts').remove();
-                                isLoading = false;
+                                // isLoading = false;
                                 $('#loading').hide();
                                 $('.posts_area').append(response);
                             }
