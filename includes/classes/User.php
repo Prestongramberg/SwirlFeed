@@ -4,8 +4,7 @@ class User
 {
     private $user;
     private $con;
-
-    // this constructor is called when the user creates an object of the user class
+    
     public function __construct($con, $user)
     {
         $this->con = $con;

@@ -7,7 +7,6 @@ class Message
     private $user_obj;
     private $con;
 
-    // Constructor is called when the user creates an object of the user class
     public function __construct($con, $user)
     {
         $this->con = $con;
