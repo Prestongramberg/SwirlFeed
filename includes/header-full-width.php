@@ -57,7 +57,7 @@ if (isset($_SESSION['username'])) {
         </a>
         <a href="index.php"><i class="fa-solid fa-house-chimney"></i></a>
         <a href="javascript:void(0);" onclick="getDropdownData('<?php
-        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i>
+        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope" id="message_icon"></i>
             <?php
             if ($num_messages > 0) {
                 echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
