@@ -194,7 +194,6 @@ class Message
         return $return_string;
     }
 
-
     public function getConvosDropdown($data, $limit)
     {
         $page = $data['page'];
@@ -270,6 +269,12 @@ class Message
 
 
         return $return_string;
+    }
+
+    public function getUnreadNumber() {
+        $userLoggedIn = $this->user_obj->getUsername();
+        $query = mysqli_query($this->con, "SELECT * FROM messages WHERE viewed='no' AND user_to='$userLoggedIn'");
+        return mysqli_num_rows($query);
     }
 
 

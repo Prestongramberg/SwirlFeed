@@ -475,3 +475,23 @@ textarea:focus {
     border: 1px solid #DADADA;
     height: 280px !important;
 }
+
+.notification_badge {
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #f00;
+    border-radius: 10px;
+    position: absolute;
+    left: 8px;
+    top: -5px;
+}
+
+#message_icon {
+    padding-right: 8px;
+}

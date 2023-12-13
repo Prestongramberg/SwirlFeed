@@ -24,7 +24,8 @@ function getDropdownData(user, type) {
         var pageName;
 
         if (type === 'notification') {
-
+            pageName = "ajax_load_notifications.php";
+            $("span").remove("#unread_notification");
         } else if (type === 'message') {
             pageName = "ajax_load_messages.php";
             $("span").remove("#unread_message");
@@ -58,10 +59,5 @@ function getUsers(value, user) {
 }
 
 function handleOnKeyUpUserSearch(inputValue, loggedInUser) {
-    debugger;
     getUsers(inputValue, loggedInUser);
 }
-
-
-
-

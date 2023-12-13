@@ -5,6 +5,7 @@ require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
 include("includes/classes/Message.php");
+include("includes/classes/Notification.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -39,7 +40,17 @@ if (isset($_SESSION['username'])) {
     <div class="logo">
         <a href="index.php">Swirlfeed</a>
     </div>
+
     <nav>
+        <?php
+        // Unread messages
+        $messages = new Message($con, $userLoggedIn);
+        $num_messages = $messages->getUnreadNumber();
+
+        // Unread Notifications
+        $notifications = new Notification($con, $userLoggedIn);
+        $num_notifications = $notifications->getUnreadNumber();
+        ?>
         <a href="<?php
         echo $userLoggedIn; ?>">
             <?php
@@ -47,8 +58,19 @@ if (isset($_SESSION['username'])) {
         </a>
         <a href="index.php"><i class="fa-solid fa-house-chimney"></i></a>
         <a href="javascript:void(0);" onclick="getDropdownData('<?php
-        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope"></i></a>
-        <a href="#"><i class="fa-regular fa-bell"></i></a>
+        echo $userLoggedIn; ?>', 'message')"><i class="fa-solid fa-envelope" id="message_icon"></i>
+            <?php
+            if ($num_messages > 0)
+                echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
+            ?>
+        </a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php
+        echo $userLoggedIn; ?>', 'notification')"><i class="fa-regular fa-bell"></i>
+            <?php
+            if ($num_notifications > 0)
+                echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
+            ?>
+        </a>
         <a href="requests.php"><i class="fa-solid fa-users"></i></a>
         <a href="#"><i class="fa-solid fa-bars"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-sign-out"></i></a>
