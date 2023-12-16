@@ -143,7 +143,7 @@ if (isset($_POST['post_message'])) {
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h5 class="modal-title" id="exampleModalLabel">Post somthing!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Post something!</h5>
                 </div>
                 <div class="modal-body">
                     <p>This will appear on the user's profile page and also their newsfeed for your friends to see!</p>
@@ -185,9 +185,10 @@ if (isset($_POST['post_message'])) {
                 }
             });
 
-            // var isLoading = false;
+            var isLoading = false;
 
             $(window).scroll(function () {
+                console.log("Test");
                 var height = $('.posts_area').height(); // Div containing posts
                 var scroll_top = $(this).scrollTop();
                 var page = $('.posts_area').find('.nextPage').val();

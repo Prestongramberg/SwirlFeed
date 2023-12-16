@@ -255,13 +255,13 @@ class Post
 
         $start = ($page - 1) * $limit;
 
-        global $con;
+//        global $con;
         $str = ""; // String to return
         $data_query = mysqli_query(
             $this->con,
             "SELECT * FROM posts WHERE deleted='no'  AND ((added_by='$profileUser' AND user_to='none') OR user_to='$profileUser') ORDER BY id DESC LIMIT $limit OFFSET $start"
         );
-        $count_query = mysqli_query($this->con, "SELECT COUNT(*) AS total_count FROM posts WHERE deleted='no'");
+        $count_query = mysqli_query($this->con, "SELECT COUNT(*) AS total_count FROM posts WHERE deleted='no' AND ((added_by='$profileUser' AND user_to='none') OR user_to='$profileUser')");
         $count_row = mysqli_fetch_assoc($count_query);
         $total_count = $count_row['total_count'];
         $hasMoreResults = $total_count > ($page * $limit);
@@ -317,7 +317,7 @@ class Post
                         $time_message = $interval->y . " year ago";
                     } // 1 year ago
                     else {
-                        $time_message = $interval->y . " years ago";
+                        $time_message = $interval->y . "  years ago";
                     } // 1+ year ago
                 } else {
                     if ($interval->m >= 1) {
@@ -332,9 +332,9 @@ class Post
                         }
 
                         if ($interval->m == 1) {
-                            $time_message = $interval->m . " month" . $days;
+                            $time_message = $interval->m . " month " . $days;
                         } else {
-                            $time_message = $interval->m . " months" . $days;
+                            $time_message = $interval->m . " months " . $days;
                         }
                     } else {
                         if ($interval->d >= 1) {
@@ -348,20 +348,20 @@ class Post
                                 if ($interval->h == 1) {
                                     $time_message = $interval->d . " hour ago";
                                 } else {
-                                    $time_message = $interval->h . " hours ago";
+                                    $time_message = $interval->h . "   hours ago";
                                 }
                             } else {
                                 if ($interval->i >= 1) {
                                     if ($interval->i == 1) {
                                         $time_message = $interval->i . " minute ago";
                                     } else {
-                                        $time_message = $interval->i . " minutes ago";
+                                        $time_message = $interval->i . "  minutes ago";
                                     }
                                 } else {
                                     if ($interval->s < 30) {
                                         $time_message = "Just now";
                                     } else {
-                                        $time_message = $interval->s . " seconds ago";
+                                        $time_message = $interval->s . "  seconds ago";
                                     }
                                 }
                             }
