@@ -44,7 +44,8 @@ if (isset($_SESSION['username'])) {
     <div class="search">
 
         <form action="search.php" method="GET" name="search_form">
-            <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
+            <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php
+            echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
             <div class="button_holder">
                 <img src="assets/images/icons/search_icon.png" alt="search_icon">
             </div>

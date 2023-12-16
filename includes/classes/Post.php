@@ -261,7 +261,10 @@ class Post
             $this->con,
             "SELECT * FROM posts WHERE deleted='no'  AND ((added_by='$profileUser' AND user_to='none') OR user_to='$profileUser') ORDER BY id DESC LIMIT $limit OFFSET $start"
         );
-        $count_query = mysqli_query($this->con, "SELECT COUNT(*) AS total_count FROM posts WHERE deleted='no' AND ((added_by='$profileUser' AND user_to='none') OR user_to='$profileUser')");
+        $count_query = mysqli_query(
+            $this->con,
+            "SELECT COUNT(*) AS total_count FROM posts WHERE deleted='no' AND ((added_by='$profileUser' AND user_to='none') OR user_to='$profileUser')"
+        );
         $count_row = mysqli_fetch_assoc($count_query);
         $total_count = $count_row['total_count'];
         $hasMoreResults = $total_count > ($page * $limit);

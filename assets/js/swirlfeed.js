@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
     $('#search_text_input').focus(function () {
-       if(window.matchMedia("(min-width:800px)").matches) {
-           $(this).animate({width: '250px'}, 450);
-       }
+        if (window.matchMedia("(min-width:800px)").matches) {
+            $(this).animate({width: '250px'}, 450);
+        }
     });
 
     $('.button_holder').on('click', function () {
-       document.search_form.submit();
+        document.search_form.submit();
     });
 
 
