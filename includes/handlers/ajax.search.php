@@ -29,4 +29,22 @@ else {
     );
 }
 
+if($query != "") {
+    while($row = mysqli_fetch_array($usersReturnedQuery)) {
+        $user = new User($con, $userLoggedIn);
+
+        if($row['username'] != $userLoggedIn)
+            $mutual_friends = $user->getMutualFriends($row['username'] . " friends in common");
+            else
+                $mutual_friends == "";
+
+            echo "<div class='resultDisplay'>
+
+                  </div>";
+
+
+
+    }
+}
+
 
