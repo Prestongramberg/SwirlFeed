@@ -29,6 +29,17 @@ $(document).ready(function () {
     });
 });
 
+$(document).click(function(e) {
+
+    if(e.target.class != "search_results" && e.target.id != "search_text_input") {
+        $(".search_results").html("");
+        $('.search_results_footer').html("");
+        $('.search_results_footer').toggleClass("search_results_footer_empty");
+        $('.search_results_footer').toggleClass("search_results_footer");
+    }
+
+});
+
 function getDropdownData(user, type) {
 
     if ($(".dropdown_data_window").css("height") == "0px") {
