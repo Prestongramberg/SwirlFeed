@@ -4,7 +4,7 @@ class User
 {
     private $user;
     private $con;
-    
+
     public function __construct($con, $user)
     {
         $this->con = $con;
@@ -17,7 +17,8 @@ class User
         return $this->user['username'];
     }
 
-    public function getNumberOfFriendsRequest() {
+    public function getNumberOfFriendsRequest()
+    {
         $username = $this->user['username'];
         $query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$username'");
         return mysqli_num_rows($query);
