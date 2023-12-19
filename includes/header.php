@@ -99,7 +99,7 @@ if (isset($_SESSION['username'])) {
             }
             ?>
         </a>
-        <a href="#"><i class="fa-solid fa-bars"></i></a>
+        <a href="settings.php"><i class="fa-solid fa-bars"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-sign-out"></i></a>
     </nav>
     <div class="dropdown_data_window" style="height: 0; "></div>
