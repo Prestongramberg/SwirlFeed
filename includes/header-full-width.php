@@ -43,7 +43,7 @@ if (isset($_SESSION['username'])) {
 
     <div class="search">
 
-        <form action="handlers/ajax_search.php" method="GET" name="search_form">
+        <form action="search.php" method="GET" name="search_form">
             <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php
             echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
             <div class="button_holder">

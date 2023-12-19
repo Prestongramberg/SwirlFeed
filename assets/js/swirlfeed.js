@@ -38,10 +38,10 @@ $(document).click(function (e) {
         $('.search_results_footer').toggleClass("search_results_footer");
     }
 
-    if (e.target.class != "dropdown_data_window") {
-        $('.dropdown_data_window').html("");
-        // $('.dropdown_data_window--active').css({"padding" : "0px", "height" : "0px"}); doesnt work. suppoes to remove mail dropdown
-    }
+    // if (e.target.class != "dropdown_data_window") {
+    //     $('.dropdown_data_window').html("");
+    //     $('.dropdown_data_window--active').css({"padding" : "0px", "height" : "0px"}); doesnt work. suppoes to remove mail dropdown
+    // }
 
 
 });
