@@ -11,5 +11,4 @@ include("includes/header.php");
     <br>
     <a href="upload.php">Upload new profile picture</a><br><br><br>
 
-
 </div>
