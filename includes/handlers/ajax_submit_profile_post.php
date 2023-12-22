@@ -6,7 +6,8 @@ include("../classes/User.php");
 include("../classes/Post.php");
 include("../classes/Notification.php");
 
-$limit = 10; // Number of posts being loaded per call
+if(isset($_POST['post_body'])) {
 
-$posts = new Post($con, $_REQUEST['userLoggedIn']);
-$posts->loadPostsFriends($_REQUEST, $limit);
+    $post = new Post($con, $_POST['user_from']);
+    $post->submitPost($_POST['post_body'], $_POST['user_to'], '');
+}
