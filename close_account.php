@@ -13,12 +13,6 @@ if(isset($_POST['close_account'])) {
     header("Location: register.php");
 }
 
-
-
-
-
-
-
 ?>
 
 <div class="main_column column">
@@ -27,7 +21,7 @@ if(isset($_POST['close_account'])) {
     Closing your account will hide your profile and all your activity from other users.<br><br>
     You can re-open your account at any time by simply logging in.<br><br>
     <form action="close_account.php" method="POST">
-        <input type="submit" name="close_account" id="close_account" value="Yes! Close Account">
-        <input type="submit" name="cancel" id="update_details" value="No Way!">
+        <input type="submit" name="close_account" id="close_account" value="Yes! Close Account" class="danger settings_submit">
+        <input type="submit" name="cancel" id="update_details" value="No Way!" class="info settings_submit">
     </form>
 </div>
