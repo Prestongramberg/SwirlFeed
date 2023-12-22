@@ -53,9 +53,7 @@ if (isset($_SESSION['username'])) {
 
         <div class="search_results"></div>
         <div class="search_results_footer_empty"></div>
-
     </div>
-
     <nav>
         <?php
         $messages = new Message($con, $userLoggedIn);
@@ -100,12 +98,9 @@ if (isset($_SESSION['username'])) {
         <a href="settings.php"><i class="fa-solid fa-bars"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-sign-out"></i></a>
     </nav>
-
     <div class="dropdown_data_window" style="height: 0; "></div>
     <input type="hidden" id="dropdown_data_type" value="">
-
 </div>
-
 <script>
     var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
@@ -140,12 +135,9 @@ if (isset($_SESSION['username'])) {
                         $('.dropdown_data_window').append(response);
                     }
                 });
-
-
             } // End if
             return false;
         }); // End $(window).scroll(function()
     });
 </script>
-
 <div class="wrapper wrapper-full-width">

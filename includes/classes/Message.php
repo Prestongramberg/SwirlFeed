@@ -93,10 +93,10 @@ class Message
 
         if ($interval->y >= 1) {
             if ($interval == 1) {
-                $time_message = $interval->y . " year ago";
+                $time_message = $interval->y . " year ago ";
             } // 1 year ago
             else {
-                $time_message = $interval->y . " years ago";
+                $time_message = $interval->y . " years ago ";
             } // 1+ year ago
         } else {
             if ($interval->m >= 1) {
@@ -111,9 +111,9 @@ class Message
                 }
 
                 if ($interval->m == 1) {
-                    $time_message = $interval->m . " month" . $days;
+                    $time_message = $interval->m . " month " . $days;
                 } else {
-                    $time_message = $interval->m . " months" . $days;
+                    $time_message = $interval->m . " months " . $days;
                 }
             } else {
                 if ($interval->d >= 1) {
@@ -241,11 +241,8 @@ class Message
             );
             $row = mysqli_fetch_array($is_unread_query);
             $style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
-
-
             $user_found_obj = new User($this->con, $username);
             $latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
-
             $dots = (strlen($latest_message_details[1]) >= 12) ? "..." : "";
             $split = str_split($latest_message_details[1], 12);
             $split = $split[0] . $dots;
@@ -259,14 +256,12 @@ class Message
                 </a>";
         }
 
-        // if posts were loaded
+        // If posts were loaded
         if ($count > $limit) {
             $return_string .= "<input type='hidden' class='nextPageDropDownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropDownData' value='false'>";
         } else {
             $return_string .= "<input type='hidden' class='noMoreDropDownData' value='true'><p style='text-align: center;'>No more messages to load!</p>";
         }
-
-
         return $return_string;
     }
 

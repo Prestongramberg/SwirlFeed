@@ -9,4 +9,3 @@ $limit = 7; // Number of messages to load
 
 $notification = new Notification($con, $_REQUEST['userLoggedIn']);
 echo $notification->getNotification($_REQUEST, $limit);
-

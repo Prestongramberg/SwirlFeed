@@ -10,10 +10,8 @@ $(document).ready(function () {
         document.search_form.submit();
     });
 
-
     // Button for profile post
     $('#submit_profile_post').click(function () {
-
         $.ajax({
             type: "POST",
             url: "includes/handlers/ajax_submit_profile_post.php",
@@ -37,13 +35,6 @@ $(document).click(function (e) {
         $('.search_results_footer').toggleClass("search_results_footer_empty");
         $('.search_results_footer').toggleClass("search_results_footer");
     }
-
-    // if (e.target.class != "dropdown_data_window") {
-    //     $('.dropdown_data_window').html("");
-    //     $('.dropdown_data_window--active').css({"padding" : "0px", "height" : "0px"}); doesnt work. suppoes to remove mail dropdown
-    // }
-
-
 });
 
 function getDropdownData(user, type) {
@@ -77,13 +68,13 @@ function getDropdownData(user, type) {
         $(".dropdown_data_window").removeClass('dropdown_data_window--active');
 
     }
-
 }
 
 function getUsers(value, user) {
     $.post("includes/handlers/ajax_friend_search.php", {query: value, userLoggedIn: user}, function (data) {
         $(".results").html(data);
     });
+
 }
 
 function handleOnKeyUpUserSearch(inputValue, loggedInUser) {
@@ -104,7 +95,6 @@ function getLiveSearchUsers(value, user) {
             $('.search_results_footer').html("");
             $('.search_results_footer').toggleClass("search_results_footer_empty");
             $('.search_results_footer').toggleClass("search_results_footer");
-
         }
 
     });

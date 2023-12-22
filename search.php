@@ -128,5 +128,4 @@ if (isset($_GET['type'])) {
     } // End While
 
     ?>
-
 </div>

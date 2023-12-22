@@ -79,15 +79,13 @@ if (isset($_POST['postComment' . $post_id])) {
 
     $get_commenters = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id'");
     $notified_users = array();
-    while($row = mysqli_fetch_array($get_commenters)) {
-
-        if($row['posted_by'] != $posted_to && $row['posted_by'] != $user_to
-        && $row['posted_by'] != $userLoggedIn && !in_array($row['posted_by'], $notified_users)) {
+    while ($row = mysqli_fetch_array($get_commenters)) {
+        if ($row['posted_by'] != $posted_to && $row['posted_by'] != $user_to
+            && $row['posted_by'] != $userLoggedIn && !in_array($row['posted_by'], $notified_users)) {
             $notification = new Notification($con, $userLoggedIn);
             $notification->insertNotification($post_id, $row['posted_by'], "comment_non_owner");
 
             array_push($notified_users, $row['posted_by']);
-
         }
     }
 
@@ -125,10 +123,10 @@ if ($count != 0) {
 
         if ($interval->y >= 1) {
             if ($interval == 1) {
-                $time_message = $interval->y . " year ago";
+                $time_message = $interval->y . " year ago ";
             } // 1 year ago
             else {
-                $time_message = $interval->y . " year ago";
+                $time_message = $interval->y . " year ago ";
             } // 1+ year ago
         } else {
             if ($interval->m >= 1) {
@@ -143,9 +141,9 @@ if ($count != 0) {
                 }
 
                 if ($interval->m == 1) {
-                    $time_message = $interval->m . " month" . $days;
+                    $time_message = $interval->m . " month " . $days;
                 } else {
-                    $time_message = $interval->m . " months" . $days;
+                    $time_message = $interval->m . " months " . $days;
                 }
             } else {
                 if ($interval->d >= 1) {
@@ -166,7 +164,7 @@ if ($count != 0) {
                             if ($interval->i == 1) {
                                 $time_message = $interval->i . " minute ago";
                             } else {
-                                $time_message = $interval->i . " minute ago";
+                                $time_message = $interval->i . " minutes ago";
                             }
                         } else {
                             if ($interval->s < 30) {
@@ -199,7 +197,5 @@ if ($count != 0) {
     echo "<div class='centerd'><br><br>No Comments to Show!</div>";
 }
 ?>
-
-
 </body>
 </html>

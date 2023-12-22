@@ -1,6 +1,6 @@
 <?php
 
-ob_start(); // This turns on output buffering, Which saves php data when page is loaded and send data to page.
+ob_start(); // Enables output buffering, which saves php data when page is loaded and sends data to page
 session_start();
 
 $timezone = date_default_timezone_set('America/Chicago');

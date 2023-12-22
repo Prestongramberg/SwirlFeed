@@ -74,10 +74,10 @@ class Notification
 
             if ($interval->y >= 1) {
                 if ($interval == 1) {
-                    $time_message = $interval->y . " year ago";
+                    $time_message = $interval->y . " year ago ";
                 } // 1 year ago
                 else {
-                    $time_message = $interval->y . " year ago";
+                    $time_message = $interval->y . " year ago ";
                 } // 1+ year ago
             } else {
                 if ($interval->m >= 1) {
@@ -92,9 +92,9 @@ class Notification
                     }
 
                     if ($interval->m == 1) {
-                        $time_message = $interval->m . " month" . $days;
+                        $time_message = $interval->m . " month " . $days;
                     } else {
-                        $time_message = $interval->m . " months" . $days;
+                        $time_message = $interval->m . " months " . $days;
                     }
                 } else {
                     if ($interval->d >= 1) {
@@ -115,7 +115,7 @@ class Notification
                                 if ($interval->i == 1) {
                                     $time_message = $interval->i . " minute ago";
                                 } else {
-                                    $time_message = $interval->i . " minute ago";
+                                    $time_message = $interval->i . " minutes ago";
                                 }
                             } else {
                                 if ($interval->s < 30) {

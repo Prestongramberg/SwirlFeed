@@ -44,8 +44,6 @@ if (isset($_POST['post_message'])) {
 
          </script>";
 }
-
-
 ?>
 
     <div class="profile_left">
@@ -103,10 +101,7 @@ if (isset($_POST['post_message'])) {
             <li role="presentation"><a href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
             </li>
         </ul>
-
-
         <div class="tab-content">
-
             <div role="tabpanel" class="tab-pane fade in active" id="newsfeed_div">
                 <div class="posts_area"></div>
                 <img id="loading" src="assets/images/icons/loading.gif">
@@ -216,8 +211,6 @@ if (isset($_POST['post_message'])) {
                             }
                         });
                     }
-
-
                 } // End if
                 return false;
             }); // End $(window).scroll(function()

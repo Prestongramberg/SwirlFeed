@@ -25,8 +25,6 @@ if (isset($_POST['post_message'])) {
         $message_obj->sendMessage($user_to, $body, $date);
     }
 }
-
-
 ?>
 
 <div class="user_details column">

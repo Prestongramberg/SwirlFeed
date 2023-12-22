@@ -25,8 +25,6 @@ if (isset($_POST['update_details'])) {
     $message = "";
 }
 
-//**********************************************************
-
 if (isset($_POST['update_password'])) {
     $old_password = strip_tags($_POST['old_password']);
     $new_password_1 = strip_tags($_POST['new_password_1']);

@@ -1,15 +1,14 @@
 <?php
 
-// Declaring Variables
 global $con;
-$fname = "";        // First Name
-$lname = "";        // Last Name
-$em = "";           // Email
-$em2 = "";          // Email 2
-$password = "";     // Password
-$password2 = "";    // Password 2
-$date = "";         // Sign up date
-$error_array = array();  // Handles error messages
+$fname = "";
+$lname = "";
+$em = "";
+$em2 = "";
+$password = "";
+$password2 = "";
+$date = "";
+$error_array = array();
 
 if (isset($_POST['register_button'])) {
 // Register form values
@@ -39,8 +38,8 @@ if (isset($_POST['register_button'])) {
     $_SESSION['reg_email2'] = $em2; // Stores email 2 into session variable
 
 // Password 1 & 2
-    $password = strip_tags($_POST['reg_password']);    // Strip_tags removes hasty html tags
-    $password2 = strip_tags($_POST['reg_password2']);    // Strip_tags removes hasty html tags
+    $password = strip_tags($_POST['reg_password']);
+    $password2 = strip_tags($_POST['reg_password2']);
 
     $date = date("Y-m-d"); // This gets the current date
 
