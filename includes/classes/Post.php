@@ -16,12 +16,27 @@ class Post
         global $userLoggedIn;
         $body = strip_tags($body); // removes HTML tags
         $body = mysqli_real_escape_string($this->con, $body);
-
         $body = str_replace('\r\n', '\n', $body);
         $body = nl2br($body);
-
         $check_empty = preg_replace('/\s/', '', $body); // deletes all spaces
+
         if ($check_empty != "") {
+
+            $body_array = preg_split("/\s+/", $body);
+
+            foreach($body_array as $key => $value) {
+
+                if(strpos($value, "www.youtube.com/watch?v=") !== false) {
+
+                    $link = preg_split("!&!", $value);
+                    $value = preg_replace("!watch\?v=!", "embed/", $link[0]);
+                    $value = "<br><iframe width=\'420\' height=\'315\' src=\'" . $value . "\'></iframe><br>";
+                    $body_array[$key] = $value;
+                }
+            }
+            $body = implode(" ", $body_array);
+
+
             // current date and time
             $date_added = date("Y-m-d H:i:s");
 
