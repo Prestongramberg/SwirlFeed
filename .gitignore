@@ -1,2 +1,4 @@
 assets/images/posts
 assets/images/.DS_Store
+assets/images/profile_pics/*
+!assets/images/profile_pics/defaults
